@@ -19,8 +19,9 @@ contains
   end subroutine collect_Basic_Functionality
 
   subroutine test_valid(error)
+    use SLP, only: tt
     type(error_type), allocatable, intent(out) :: error
-    ! ...
+    call tt()
   end subroutine test_valid
 
   subroutine test_invalid(error)

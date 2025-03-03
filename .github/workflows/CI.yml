@@ -28,4 +28,7 @@ jobs:
             fpm run main
         - name: Test SLP
           run: |
-            fpm test
+            fpm test --profile debug --flag --coverage
+            gcov ./build/gfortran_*/SLP/src*.gcda -r ./src/ -b
+        - name: Upload coverage reports to Codecov
+          uses: codecov/codecov-action@v5
