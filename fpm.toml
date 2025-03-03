@@ -1,0 +1,28 @@
+name = "SLP"
+version = "0.1.0"
+
+license = "GNU General Public License v3.0"
+author = "Álvaro R. Puente-Uriona"
+maintainer = "alvaro.ruiz@ehu.eus"
+copyright = "Copyright 2025, Álvaro R. Puente-Uriona"
+
+[library]
+source-dir="src"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+module-naming = false
+link = ["blas", "lapack"]
+
+[install]
+library = true
+
+[fortran]
+implicit-typing = true
+implicit-external = true
+source-form = "free"
+
+[dev-dependencies]
+test-drive = { git="https://github.com/fortran-lang/test-drive", tag = "v0.5.0" }

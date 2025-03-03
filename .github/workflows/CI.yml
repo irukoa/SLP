@@ -1,0 +1,31 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Setup gfortran
+          run: |
+            sudo apt-get update
+            sudo apt-get install  \
+              gfortran            \
+        - name: Setup FPM
+          uses: fortran-lang/setup-fpm@v5
+          with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+        - name: Build SLP
+          run: |
+            fpm run main
+        - name: Test SLP
+          run: |
+            fpm test
