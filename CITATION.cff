@@ -9,6 +9,10 @@ authors:
     email: alvaro.ruiz@ehu.eus
     affiliation: UPV/EHU
     orcid: 'https://orcid.org/0000-0003-1915-8804'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.14961609
+    description: Zenodo
 repository-code: 'https://github.com/irukoa/SLP'
 url: 'https://github.com/irukoa/SLP'
 abstract: >-
