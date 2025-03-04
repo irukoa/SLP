@@ -1,5 +1,7 @@
 module SLP
 
+  use SLP_kinds, only: wp => dp
+
   implicit none
   private
 
