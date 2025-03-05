@@ -76,6 +76,15 @@ contains
       allocate (error)
       return
     endif
+    call boundary_condition_linter("Singular", .true., bcond, id)
+    if (.not. bcond) then
+      allocate (error)
+      return
+    endif
+    if (id /= -1) then
+      allocate (error)
+      return
+    endif
   end subroutine test_boundary_condition_linter
 
   subroutine test_shift_on_fixed_sp_arrays(error)

@@ -43,15 +43,20 @@ contains
       if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Setting <<Free>> boundary conditions..."
       boundary_condition = .false.
       boundary_condition_id = 0
+    case ("Singular")
+      if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Considering singular problem..."
+      boundary_condition = .true.
+      boundary_condition_id = -1
     case default
-      if (not_silent) write (unit=stdout, fmt="(A)") "SLP Error: Boundary condition not recognized."
+      if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Boundary condition not recognized."
       if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Options are:"
       if (not_silent) write (unit=stdout, fmt="(A)") "     - For y(boundary) = 0: <<Dirichlet>>, or <<First_Kind>>."
       if (not_silent) write (unit=stdout, fmt="(A)") "     - For y'(boundary) = 0: <<Neumann>>, or <<Second_Kind>>."
       if (not_silent) write (unit=stdout, fmt="(A)") "     - For y(boundary) + c*y'(boundary) = 0: <<Mixed>>, or <<Third_Kind>>."
       if (not_silent) write (unit=stdout, fmt="(A)") "     - For y(a) - y(b) = 0, y'(a) - y'(b) = 0: <<Periodic>>."
-      if (not_silent) write (unit=stdout, fmt="(A)") "     - Unspecified (as in a singular problem): <<Free>>."
-      error stop "SLP Error: Boundary condition not recognized."
+      if (not_silent) write (unit=stdout, fmt="(A)") "     - Unspecified (not imposed): <<Free>>."
+      if (not_silent) write (unit=stdout, fmt="(A)") "     - For singular problems: <<Singular>>."
+      error stop "SLP: Boundary condition not recognized."
     end select
 
   end subroutine boundary_condition_linter
