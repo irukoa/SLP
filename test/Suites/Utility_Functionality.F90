@@ -1,7 +1,7 @@
 module Utility_Functionality
 
-  use, intrinsic :: iso_fortran_env, only: stderr => error_unit
-  use testdrive, only: new_unittest, unittest_type, error_type, check
+  use, intrinsic :: Iso_Fortran_ENV, only: stderr => error_unit
+  use testdrive, only: new_unittest, unittest_type, error_type
 
   use SLP_kinds, only: sp, dp
 

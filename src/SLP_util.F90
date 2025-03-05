@@ -55,11 +55,11 @@ contains
     character(len=1024) :: errormsg
 
     if (size(matrix(:, 1)) /= size(matrix(1, :))) error stop &
-      "SLP Error: Matrix to diagonalize is not square."
+      "SLP: Matrix to diagonalize is not square."
     if (size(metric(:, 1)) /= size(metric(1, :))) error stop &
-      "SLP Error: Metric is not square."
+      "SLP: Metric is not square."
     if (size(matrix(:, 1)) /= size(metric(:, 1))) error stop &
-      "SLP Error: Matrix and metric are different sizes."
+      "SLP: Matrix and metric are different sizes."
     dim = size(matrix(:, 1))
 
     !Initialization.
@@ -83,7 +83,7 @@ contains
 
     if (info /= 0) then
       write (errormsg, "(i20)") info
-      errormsg = "SLP Error: Subroutine ssygvd failed with info = "//trim(adjustl(errormsg))//"."
+      errormsg = "SLP: Subroutine ssygvd failed with info = "//trim(adjustl(errormsg))//"."
       error stop trim(errormsg)
     endif
 
@@ -122,11 +122,11 @@ contains
     character(len=1024) :: errormsg
 
     if (size(matrix(:, 1)) /= size(matrix(1, :))) error stop &
-      "SLP Error: Matrix to diagonalize is not square."
+      "SLP: Matrix to diagonalize is not square."
     if (size(metric(:, 1)) /= size(metric(1, :))) error stop &
-      "SLP Error: Metric is not square."
+      "SLP: Metric is not square."
     if (size(matrix(:, 1)) /= size(metric(:, 1))) error stop &
-      "SLP Error: Matrix and metric are different sizes."
+      "SLP: Matrix and metric are different sizes."
     dim = size(matrix(:, 1))
 
     !Initialization.
@@ -150,7 +150,7 @@ contains
 
     if (info /= 0) then
       write (errormsg, "(i20)") info
-      errormsg = "SLP Error: Subroutine dsygvd failed with info = "//trim(adjustl(errormsg))//"."
+      errormsg = "SLP: Subroutine dsygvd failed with info = "//trim(adjustl(errormsg))//"."
       error stop trim(errormsg)
     endif
 
@@ -190,11 +190,11 @@ contains
     character(len=1024) :: errormsg
 
     if (size(matrix(:, 1)) /= size(matrix(1, :))) error stop &
-      "SLP Error: Matrix to diagonalize is not square."
+      "SLP: Matrix to diagonalize is not square."
     if (size(metric(:, 1)) /= size(metric(1, :))) error stop &
-      "SLP Error: Metric is not square."
+      "SLP: Metric is not square."
     if (size(matrix(:, 1)) /= size(metric(:, 1))) error stop &
-      "SLP Error: Matrix and metric are different sizes."
+      "SLP: Matrix and metric are different sizes."
     dim = size(matrix(:, 1))
 
     !Initialization.
@@ -219,7 +219,7 @@ contains
 
     if (info /= 0) then
       write (errormsg, "(i20)") info
-      errormsg = "SLP Error: Subroutine chegvd failed with info = "//trim(adjustl(errormsg))//"."
+      errormsg = "SLP: Subroutine chegvd failed with info = "//trim(adjustl(errormsg))//"."
       error stop trim(errormsg)
     endif
 
@@ -259,11 +259,11 @@ contains
     character(len=1024) :: errormsg
 
     if (size(matrix(:, 1)) /= size(matrix(1, :))) error stop &
-      "SLP Error: Matrix to diagonalize is not square."
+      "SLP: Matrix to diagonalize is not square."
     if (size(metric(:, 1)) /= size(metric(1, :))) error stop &
-      "SLP Error: Metric is not square."
+      "SLP: Metric is not square."
     if (size(matrix(:, 1)) /= size(metric(:, 1))) error stop &
-      "SLP Error: Matrix and metric are different sizes."
+      "SLP: Matrix and metric are different sizes."
     dim = size(matrix(:, 1))
 
     !Initialization.
@@ -288,7 +288,7 @@ contains
 
     if (info /= 0) then
       write (errormsg, "(i20)") info
-      errormsg = "SLP Error: Subroutine zhegvd failed with info = "//trim(adjustl(errormsg))//"."
+      errormsg = "SLP: Subroutine zhegvd failed with info = "//trim(adjustl(errormsg))//"."
       error stop trim(errormsg)
     endif
 
