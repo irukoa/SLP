@@ -1,11 +1,12 @@
 program Driver
 
-  use, intrinsic :: iso_fortran_env, only: stderr => error_unit
+  use, intrinsic :: Iso_Fortran_ENV, only: stderr => error_unit
   use testdrive, only: run_testsuite, new_testsuite, testsuite_type
 
   !Load test suites.
   use Basic_Functionality, only: collect_Basic_Functionality
   use Utility_Functionality, only: collect_Utility_Functionality
+  use Auxiliary_Functionality, only: collect_Auxiliary_Functionality
 
   implicit none
 
@@ -16,7 +17,8 @@ program Driver
 
   testsuites = [ &
                new_testsuite("Basic Functionality", collect_Basic_Functionality), &
-               new_testsuite("Utility Functionality", collect_Utility_Functionality) &
+               new_testsuite("Utility Functionality", collect_Utility_Functionality), &
+               new_testsuite("Auxiliary Functionality", collect_Auxiliary_Functionality) &
                ]
 
   call random_seed()
