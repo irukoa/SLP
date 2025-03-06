@@ -7,6 +7,7 @@ program Driver
   use Basic_Functionality, only: collect_Basic_Functionality
   use Utility_Functionality, only: collect_Utility_Functionality
   use Auxiliary_Functionality, only: collect_Auxiliary_Functionality
+  use Linop_Functionality, only: collect_Linop_Functionality
 
   implicit none
 
@@ -18,7 +19,8 @@ program Driver
   testsuites = [ &
                new_testsuite("Basic Functionality", collect_Basic_Functionality), &
                new_testsuite("Utility Functionality", collect_Utility_Functionality), &
-               new_testsuite("Auxiliary Functionality", collect_Auxiliary_Functionality) &
+               new_testsuite("Auxiliary Functionality", collect_Auxiliary_Functionality), &
+               new_testsuite("Operator Functionality", collect_Linop_Functionality) &
                ]
 
   call random_seed()
