@@ -24,44 +24,45 @@ contains
 
     select case (name)
     case ("Dirichlet", "First_Kind")
-      if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Setting <<Dirichlet>> boundary conditions..."
+      if (not_silent) write (unit=stdout, fmt="(A)") "  SLP: Setting <<Dirichlet>> boundary conditions..."
       boundary_condition = .true.
       boundary_condition_id = 1
     case ("Neumann", "Second_Kind")
-      if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Setting <<Neumann>> boundary conditions..."
+      if (not_silent) write (unit=stdout, fmt="(A)") "  SLP: Setting <<Neumann>> boundary conditions..."
       boundary_condition = .true.
       boundary_condition_id = 2
     case ("Mixed", "Third_Kind")
-      if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Setting <<Mixed>> boundary conditions..."
+      if (not_silent) write (unit=stdout, fmt="(A)") "  SLP: Setting <<Mixed>> boundary conditions..."
       boundary_condition = .true.
       boundary_condition_id = 3
     case ("Periodic")
-      if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Setting <<Periodic>> boundary conditions..."
+      if (not_silent) write (unit=stdout, fmt="(A)") "  SLP: Setting <<Periodic>> boundary conditions..."
       boundary_condition = .true.
       boundary_condition_id = 4
     case ("Free")
-      if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Setting <<Free>> boundary conditions..."
+      if (not_silent) write (unit=stdout, fmt="(A)") "  SLP: Setting <<Free>> boundary conditions..."
       boundary_condition = .false.
       boundary_condition_id = 0
     case ("Singular")
-      if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Considering singular problem..."
+      if (not_silent) write (unit=stdout, fmt="(A)") "  SLP: Considering singular problem..."
       boundary_condition = .true.
       boundary_condition_id = -1
     case default
-      if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Boundary condition not recognized."
-      if (not_silent) write (unit=stdout, fmt="(A)") "SLP: Options are:"
-      if (not_silent) write (unit=stdout, fmt="(A)") "     - For y(boundary) = 0: <<Dirichlet>>, or <<First_Kind>>."
-      if (not_silent) write (unit=stdout, fmt="(A)") "     - For y'(boundary) = 0: <<Neumann>>, or <<Second_Kind>>."
-      if (not_silent) write (unit=stdout, fmt="(A)") "     - For y(boundary) + c*y'(boundary) = 0: <<Mixed>>, or <<Third_Kind>>."
-      if (not_silent) write (unit=stdout, fmt="(A)") "     - For y(a) - y(b) = 0, y'(a) - y'(b) = 0: <<Periodic>>."
-      if (not_silent) write (unit=stdout, fmt="(A)") "     - Unspecified (not imposed): <<Free>>."
-      if (not_silent) write (unit=stdout, fmt="(A)") "     - For singular problems: <<Singular>>."
+      if (not_silent) write (unit=stdout, fmt="(A)") "  SLP: Boundary condition not recognized."
+      if (not_silent) write (unit=stdout, fmt="(A)") "  SLP: Options are:"
+      if (not_silent) write (unit=stdout, fmt="(A)") "       - For y(boundary) = 0: <<Dirichlet>>, or <<First_Kind>>."
+      if (not_silent) write (unit=stdout, fmt="(A)") "       - For y'(boundary) = 0: <<Neumann>>, or <<Second_Kind>>."
+      if (not_silent) write (unit=stdout, fmt="(A)") "       - For y(boundary) + c*y'(boundary) = 0: <<Mixed>>, or <<Third_Kind>>."
+      if (not_silent) write (unit=stdout, fmt="(A)") "       - For y(a) - y(b) = 0, y'(a) - y'(b) = 0: <<Periodic>>."
+      if (not_silent) write (unit=stdout, fmt="(A)") "       - Unspecified (not imposed): <<Free>>."
+      if (not_silent) write (unit=stdout, fmt="(A)") "       - For singular problems: <<Singular>>."
       error stop "SLP: Boundary condition not recognized."
     end select
 
   end subroutine boundary_condition_linter
 
   function get_shift_moving_N_largest_to_top_sp(N, arr) result(shift)
+
     !Given an array arr arranged in ascending order, computes the left
     !circular shift required to place the N largest values of the array
     !in absolute magnitude on the top. Defining sarr = cshift(arr, shift):
@@ -69,7 +70,7 @@ contains
     !- sarr(size(arr) - N + 1 : N) contains the N largest values of the
     !array arr in absolute magnitude, but unsorted.
 
-    !(*) Assumes N > size(arr) - 2.
+    !(*) Assumes N < size(arr) - 2.
     integer, intent(in) :: N
     real(sp), intent(in) :: arr(:)
     integer :: shift
@@ -114,6 +115,7 @@ contains
   end function get_shift_moving_N_largest_to_top_sp
 
   function get_shift_moving_N_largest_to_top_dp(N, arr) result(shift)
+
     !Given an array arr arranged in ascending order, computes the left
     !circular shift required to place the N largest values of the array
     !in absolute magnitude on the top. Defining sarr = cshift(arr, shift):
@@ -121,7 +123,7 @@ contains
     !- sarr(size(arr) - N + 1 : N) contains the N largest values of the
     !array arr in absolute magnitude, but unsorted.
 
-    !(*) Assumes N > size(arr) - 2.
+    !(*) Assumes N < size(arr) - 2.
     integer, intent(in) :: N
     real(dp), intent(in) :: arr(:)
     integer :: shift

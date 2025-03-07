@@ -113,7 +113,7 @@ contains
     rel_err_stm = rel_err_stm/real(N - 1, sp)
     abs_err_stm = abs_err_stm/real(N - 1, sp)
 
-    if (enforce_sym) u = 0.5_sp*(u + transpose(u))
+    if (enforce_sym) u(2:N - 1, 2:N - 1) = 0.5_sp*(u(2:N - 1, 2:N - 1) + transpose(u(2:N - 1, 2:N - 1)))
 
   end subroutine linop_re_rep_sp
 
@@ -210,7 +210,7 @@ contains
     rel_err_stm = rel_err_stm/real(N - 1, dp)
     abs_err_stm = abs_err_stm/real(N - 1, dp)
 
-    if (enforce_sym) u = 0.5_dp*(u + transpose(u))
+    if (enforce_sym) u(2:N - 1, 2:N - 1) = 0.5_dp*(u(2:N - 1, 2:N - 1) + transpose(u(2:N - 1, 2:N - 1)))
 
   end subroutine linop_re_rep_dp
 
@@ -307,7 +307,7 @@ contains
     rel_err_stm = rel_err_stm/real(N - 1, sp)
     abs_err_stm = abs_err_stm/real(N - 1, sp)
 
-    if (enforce_sym) u = 0.5_sp*(u + conjg(transpose(u)))
+    if (enforce_sym) u(2:N - 1, 2:N - 1) = 0.5_sp*(u(2:N - 1, 2:N - 1) + conjg(transpose(u(2:N - 1, 2:N - 1))))
 
   end subroutine linop_c_rep_sp
 
@@ -404,7 +404,7 @@ contains
     rel_err_stm = rel_err_stm/real(N - 1, dp)
     abs_err_stm = abs_err_stm/real(N - 1, dp)
 
-    if (enforce_sym) u = 0.5_dp*(u + conjg(transpose(u)))
+    if (enforce_sym) u(2:N - 1, 2:N - 1) = 0.5_dp*(u(2:N - 1, 2:N - 1) + conjg(transpose(u(2:N - 1, 2:N - 1))))
 
   end subroutine linop_c_rep_dp
 
