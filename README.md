@@ -6,4 +6,4 @@
 # SLP
 Sturm-Liouville problem solver (SLP).
 
-Non Functional
+Functional. Only partially tested. Not documented.
