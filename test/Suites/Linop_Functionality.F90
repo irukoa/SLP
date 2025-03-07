@@ -10,7 +10,7 @@ module Linop_Functionality
   private
 
   real(sp), parameter :: tol_sp = 1.0E1_sp*epsilon(1.0_sp)
-  real(sp), parameter :: tol_dp = 1.0E1_dp*epsilon(1.0_dp)
+  real(dp), parameter :: tol_dp = 1.0E1_dp*epsilon(1.0_dp)
 
   public :: collect_Linop_Functionality
 
