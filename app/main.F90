@@ -1,5 +1,5 @@
 program main
-  use SLP
+  use SLP_obj
 
   implicit none
   print *, "Running."
