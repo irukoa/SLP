@@ -9,6 +9,7 @@ program Driver
   use Linop_Functionality, only: collect_Linop_Functionality
   use Obj_Functionality, only: collect_Obj_Functionality
   use Obj_Rnd_Functionality, only: collect_Obj_Rnd_Functionality
+  use Error_Stop_Checks, only: collect_Error_Stop_Checks
 
   implicit none
 
@@ -22,7 +23,8 @@ program Driver
                new_testsuite("Auxiliary Functionality", collect_Auxiliary_Functionality), &
                new_testsuite("Operator Functionality", collect_Linop_Functionality), &
                new_testsuite("SLP Object Functionality", collect_Obj_Functionality), &
-               new_testsuite("SLP Random Object Functionality", collect_Obj_Rnd_Functionality) &
+               new_testsuite("SLP Random Object Functionality", collect_Obj_Rnd_Functionality), &
+               new_testsuite("SLP Error Stops", collect_Error_Stop_Checks) &
                ]
 
   call random_seed()
