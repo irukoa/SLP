@@ -7,3 +7,6 @@
 Sturm-Liouville problem solver (SLP).
 
 Functional. Only partially tested. Not documented.
+
+Ifort, ifx complain when running tests, SEGFault at valid input. "ulimit -s unlimited" solves the issue. --flag "-heap-arrays" solves it for ifx.
+Gfortran does not have such problems.

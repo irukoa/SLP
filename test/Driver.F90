@@ -8,6 +8,7 @@ program Driver
   use Auxiliary_Functionality, only: collect_Auxiliary_Functionality
   use Linop_Functionality, only: collect_Linop_Functionality
   use Obj_Functionality, only: collect_Obj_Functionality
+  use Obj_Rnd_Functionality, only: collect_Obj_Rnd_Functionality
 
   implicit none
 
@@ -20,7 +21,8 @@ program Driver
                new_testsuite("Utility Functionality", collect_Utility_Functionality), &
                new_testsuite("Auxiliary Functionality", collect_Auxiliary_Functionality), &
                new_testsuite("Operator Functionality", collect_Linop_Functionality), &
-               new_testsuite("SLP Object Functionality", collect_Obj_Functionality) &
+               new_testsuite("SLP Object Functionality", collect_Obj_Functionality), &
+               new_testsuite("SLP Random Object Functionality", collect_Obj_Rnd_Functionality) &
                ]
 
   call random_seed()
